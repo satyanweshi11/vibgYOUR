@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vibgYOUR - Dashboard</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body style="background-color: {{ body_color }}; color: {{ font_color }};">
+
+    <!-- Sidebar -->
+    <div class="sidebar" style="border-right: 3px solid {{ border_color }};">
+        <h2 class="sidebar-title">vibgYOUR</h2>
+        <ul>
+            <li><a href="#" class="active">Dashboard</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="/">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content text-center">
+        <div class="container">
+            <h2>Welcome, <span>{{ username }}</span></h2>
+            <!-- Hidden span to store username -->
+            <span id="username" data-username="{{ username }}" hidden></span>
+
+
+            <div class="theme-container mt-4">
+                <h4>Customize Theme</h4>
+
+                <!-- Font Color Picker -->
+                <label for="fontColorPicker">Font Color:</label>
+                <input type="color" id="fontColorPicker" value="{{ font_color }}">
+                
+                <!-- Background Color Picker -->
+                <label for="bgColorPicker">Background Color:</label>
+                <input type="color" id="bgColorPicker" value="{{ body_color }}">
+
+                <!-- Border Color Picker -->
+                <label for="borderColorPicker">Border Color:</label>
+                <input type="color" id="borderColorPicker" value="{{ border_color }}">
+
+                <br>
+
+                <button id="applyTheme" class="btn btn-primary mt-3">Apply Theme</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+
+</body>
+</html>
